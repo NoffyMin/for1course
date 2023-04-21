@@ -1,0 +1,37 @@
+public class Stroki {
+    private String namber;
+    private String inn = new String();;
+
+    private String[] s;
+
+
+
+    public Stroki(String n ) {inn = n.replaceAll("[^0-9 ]", "");}
+    public String getStatus() {
+        boolean s = (inn.matches("\\d{2}\\s\\d{2}\\s\\d{6}"));
+
+        if (s == true) {
+            return "Поздравляем у вас ИНН) ";
+        } else {
+            return "Неверно введён документ, введите то, что написано выше";
+        }
+    }
+    public String getInn(){return inn;}
+    public Stroki (String namber,  String stroka) {
+        this.namber = namber;
+        s = stroka.split("[!@#$%^&*(),;]");
+    }
+    public String getNamber() {
+        String namber1 = namber;
+        String primer = namber1.replaceAll("[+*/-]", "%");
+        String [] m = primer.split("[%]");
+        int m1 = Integer.valueOf(m[0]);
+        int m2 = Integer.valueOf(m[1]);
+        int s  = m1 % m2;
+        String s0 = Integer.toString(s);
+        return m[0]+ " % "+ m[1]+ " = "+ s0;
+    }
+    public String getOk(){
+        return s [0] + s[1] + "\n" + s[2] +"\n" +s[3] + "\n"+ s[4] + "\n"+ s[5] + "\n"+ s[6];
+
+}}
